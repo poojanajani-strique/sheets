@@ -8,7 +8,7 @@
 An Isomorphic Full-Stack Framework for Creating and Editing Spreadsheets, Docs, and Slides Across Web and Server.<br />
 **Extensible. High-performance. Embedded to your application.**
 
-**English** | [简体中文][readme-zh-link] | [日本語][readme-ja-link] | [Español][readme-es-link] <br />
+**English**<br />
 [Official Site][official-site-link] | [Documentation][documentation-link] | [Online Playground][playground-link] | [Blog][blog-link]
 
 [![][github-license-shield]][github-license-link]
@@ -170,7 +170,7 @@ Join the Strique community:
 
 - Chat with us and other developers on [Discord][discord-community-link].
 - Start a discussion on [GitHub Discussions][github-community-link].
-- Open a topic on [Stack Overflow][stackoverflow-community-link] and tag it with `univer`.
+- Open a topic on [Stack Overflow][stackoverflow-community-link] and tag it with `strique`.
 
 You can also find Strique on:
 
@@ -236,9 +236,6 @@ Licensed under the [Apache-2.0](https://www.apache.org/licenses/LICENSE-2.0) lic
 [discord-link]: https://discord.gg/z3NKNT6D2f
 
 [readme-en-link]: ./README.md
-[readme-zh-link]: ./README-zh.md
-[readme-ja-link]: ./README-ja.md
-[readme-es-link]: ./README-es.md
 
 [official-site-link]: https://univer.ai
 [documentation-link]: https://docs.univer.ai/en-US
