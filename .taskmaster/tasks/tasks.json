@@ -1,183 +1,142 @@
 {
-  "master": {
-    "tasks": [
-      {
-        "id": 1,
-        "title": "Configure Sheets-Only Build",
-        "description": "Set up the build configuration to serve only the Sheets example at /sheets.",
-        "details": "Modify examples/esbuild.config.ts to set entryPoints to ./src/sheets/main.ts and ./src/sheets/worker.ts. Ensure the build serves at http://localhost:3000/sheets.",
-        "testStrategy": "Run pnpm --filter univer-examples dev:demo and verify that http://localhost:3000/sheets loads correctly with the Sheets UI.",
-        "priority": "high",
-        "dependencies": [],
-        "status": "done",
-        "subtasks": []
-      },
-      {
-        "id": 2,
-        "title": "Remove Unnecessary Demos",
-        "description": "Delete all demo sources and public files except for Sheets.",
-        "details": "Delete examples/src/* except examples/src/sheets/** and any shared files it imports. Delete examples/public/* except examples/public/sheets/** and shared assets like favicon.svg.",
-        "testStrategy": "Ensure no 404 errors occur when accessing /sheets and that no other demos are accessible.",
-        "priority": "high",
-        "dependencies": [
-          1
+    "master": {
+        "tasks": [
+            {
+                "id": 1,
+                "title": "Inventory Occurrences of Brand Text",
+                "description": "Generate a findings file of all candidate occurrences of the brand text 'Univer' in user-facing files.",
+                "details": "Use a case-insensitive search to identify occurrences of 'Univer', 'UNIVER', 'Univer Sheets', and 'UniverJS' in user-facing files such as .html, .md, .ts, .tsx, and .json. Exclude directories like node_modules/, dist/, and coverage outputs. Tag and separate exclusions such as imports, URLs, and changelog history.",
+                "testStrategy": "Verify the findings file includes all occurrences in the specified files and excludes the specified directories and exclusions.",
+                "priority": "high",
+                "dependencies": [],
+                "status": "done",
+                "subtasks": []
+            },
+            {
+                "id": 2,
+                "title": "Define Replacement Rules",
+                "description": "Lock the casing and phrase rules for the brand text replacement and confirm exclusions with stakeholders.",
+                "status": "done",
+                "dependencies": [
+                    1
+                ],
+                "priority": "high",
+                "details": "Establish the replacement rules: 'Univer Sheets' to 'Strique Sheets', 'Univer' to 'Strique', 'UNIVER' to 'STRIQUE', and 'UniverJS' to 'Strique' (visible brand text only). Confirm with stakeholders that exclusions such as @univerjs/* imports, URLs, code identifiers, historical references in CHANGELOG, and third-party legal attributions are correct. Prioritize phrase-level replacements first to avoid double substitutions. Limit automated replacements to user-facing file types: .html, .md, .ts, .tsx, .json, .txt. Conduct manual review for high-value files after each phase.",
+                "testStrategy": "Ensure all replacement rules are documented and confirmed by stakeholders. Verify exclusions are agreed upon. Conduct manual reviews for high-value files to ensure accuracy.",
+                "subtasks": []
+            },
+            {
+                "id": 3,
+                "title": "Update HTML Titles and Metadata",
+                "description": "Apply brand text updates to HTML titles and metadata in the examples/public directory.",
+                "details": "Use the defined replacement rules to update HTML titles and metadata in the examples/public directory. Ensure that all occurrences of 'Univer' and related terms are replaced according to the rules.",
+                "testStrategy": "Manually review updated HTML files to ensure all titles and metadata reflect the new brand text.",
+                "priority": "medium",
+                "dependencies": [
+                    2
+                ],
+                "status": "done",
+                "subtasks": []
+            },
+            {
+                "id": 4,
+                "title": "Update UI Strings in Source Files",
+                "description": "Apply brand text updates to visible UI strings in the examples/src directory.",
+                "details": "Use the replacement rules to update visible UI strings in the examples/src directory, focusing on .ts and .tsx files. Ensure that all occurrences of 'Univer' and related terms are replaced according to the rules.",
+                "testStrategy": "Run the application and manually verify that UI strings display the new brand text correctly.",
+                "priority": "medium",
+                "dependencies": [
+                    2
+                ],
+                "status": "done",
+                "subtasks": []
+            },
+            {
+                "id": 5,
+                "title": "Update Storybook and Demo Titles",
+                "description": "Apply brand text updates to Storybook and demo titles if present.",
+                "details": "Use the replacement rules to update Storybook and demo titles, ensuring all occurrences of 'Univer' and related terms are replaced according to the rules.",
+                "testStrategy": "Run Storybook and manually verify that all titles reflect the new brand text.",
+                "priority": "medium",
+                "dependencies": [
+                    2
+                ],
+                "status": "done",
+                "subtasks": []
+            },
+            {
+                "id": 6,
+                "title": "Update Documentation",
+                "description": "Apply brand text updates to top-level documentation files.",
+                "details": "Use the replacement rules to update top-level documentation files, including README*.md and docs/**/*, ensuring all occurrences of 'Univer' and related terms are replaced according to the rules.",
+                "testStrategy": "Manually review documentation files to ensure all occurrences reflect the new brand text.",
+                "priority": "medium",
+                "dependencies": [
+                    2
+                ],
+                "status": "done",
+                "subtasks": []
+            },
+            {
+                "id": 7,
+                "title": "Run Unit and Snapshot Tests",
+                "description": "Execute unit and snapshot tests to verify branding changes.",
+                "details": "Run existing unit and snapshot tests to ensure they pass with the new brand text. Update snapshots where branding is asserted.",
+                "testStrategy": "Ensure all tests pass and updated snapshots correctly reflect the new brand text.",
+                "priority": "high",
+                "dependencies": [
+                    3,
+                    4,
+                    5,
+                    6
+                ],
+                "status": "done",
+                "subtasks": []
+            },
+            {
+                "id": 8,
+                "title": "Manual Spot-Check of High-Value Files",
+                "description": "Perform a manual spot-check of high-value files to ensure correct branding updates.",
+                "details": "Manually review high-value files such as examples/public/index.html, examples/src/**/*, Storybook configs, README*.md, and docs/**/* to ensure all branding updates are correct.",
+                "testStrategy": "Verify that all manually checked files reflect the new brand text accurately.",
+                "priority": "medium",
+                "dependencies": [
+                    7
+                ],
+                "status": "done",
+                "subtasks": []
+            },
+            {
+                "id": 9,
+                "title": "Final Global Search and Validation",
+                "description": "Re-run global search to confirm no lingering occurrences of old brand text.",
+                "details": "Perform a final global search to ensure no lingering occurrences of 'Univer' or related terms remain, except in excluded areas. Validate that exclusions have not been modified.",
+                "testStrategy": "Confirm that the final search results show no occurrences of the old brand text outside of excluded areas.",
+                "priority": "high",
+                "dependencies": [
+                    8
+                ],
+                "status": "done",
+                "subtasks": []
+            },
+            {
+                "id": 10,
+                "title": "Stakeholder Sign-off",
+                "description": "Collect sign-off from stakeholders to confirm completion of branding updates.",
+                "details": "Present the final results to stakeholders for review and approval. Ensure all branding updates meet the acceptance criteria outlined in the PRD.",
+                "testStrategy": "Obtain formal approval from stakeholders confirming that all branding updates are complete and accurate.",
+                "priority": "high",
+                "dependencies": [
+                    9
+                ],
+                "status": "done",
+                "subtasks": []
+            }
         ],
-        "status": "done",
-        "subtasks": []
-      },
-      {
-        "id": 3,
-        "title": "Trim Plugins for Sheets",
-        "description": "Reduce the plugin set to only those necessary for Sheets functionality.",
-        "details": "In examples/src/sheets/main.ts, remove unnecessary plugins like UniverDocsPlugin and UniverDocsUIPlugin. Keep only essential plugins for core Sheets functionality.",
-        "testStrategy": "Verify that the Sheets UI functions correctly with the reduced plugin set, including editing, formatting, and filtering.",
-        "priority": "medium",
-        "dependencies": [
-          2
-        ],
-        "status": "done",
-        "subtasks": []
-      },
-      {
-        "id": 4,
-        "title": "Prune Package Dependencies",
-        "description": "Remove unused package dependencies from examples/package.json.",
-        "details": "Remove dependencies related to docs, slides, and other unused features. Keep only those required for Sheets functionality and optional CSV/XLSX support.",
-        "testStrategy": "Run pnpm install and ensure the build process completes without errors. Verify Sheets functionality remains intact.",
-        "priority": "medium",
-        "dependencies": [
-          3
-        ],
-        "status": "done",
-        "subtasks": []
-      },
-      {
-        "id": 5,
-        "title": "Remove Unused Workspace Packages",
-        "description": "Delete unused workspace packages to streamline the project.",
-        "details": "Iteratively delete unused packages in packages/** and packages-experimental/**. Rebuild and verify functionality after each deletion.",
-        "testStrategy": "After each package removal, rebuild the project and verify that /sheets loads and functions correctly.",
-        "priority": "low",
-        "dependencies": [
-          4
-        ],
-        "status": "cancelled",
-        "subtasks": []
-      },
-      {
-        "id": 6,
-        "title": "Clean Up Build Configuration",
-        "description": "Remove unnecessary build configurations and scripts.",
-        "details": "If Uniscript is removed, drop monaco worker build from esbuild.config.ts. Remove Vue plugin if adapters are removed. Optionally remove scripts/generate-html.ts.",
-        "testStrategy": "Ensure the build process completes successfully and that /sheets functions without errors.",
-        "priority": "low",
-        "dependencies": [
-          5
-        ],
-        "status": "done",
-        "subtasks": []
-      },
-      {
-        "id": 7,
-        "title": "Implement Worker-Based Formula Execution",
-        "description": "Set up worker-based formula execution using RPC.",
-        "details": "Configure examples/src/sheets/worker.ts to handle formula execution via RPC using @univerjs/rpc and @univerjs/engine-formula.",
-        "testStrategy": "Test formula calculations in the Sheets UI to ensure they execute correctly and efficiently.",
-        "priority": "high",
-        "dependencies": [
-          1
-        ],
-        "status": "done",
-        "subtasks": [
-          {
-            "id": 1,
-            "title": "Set Up RPC Communication",
-            "description": "Establish RPC communication using @univerjs/rpc.",
-            "dependencies": [],
-            "details": "Configure the RPC setup in examples/src/sheets/worker.ts to enable communication between the worker and the main thread.\n<info added on 2025-09-20T16:24:58.456Z>\nRPC communication between the main and worker threads has been successfully established. The main thread in `examples/src/sheets/main.ts` creates the worker and registers the RPC main thread plugin, while the worker thread in `examples/src/sheets/worker.ts` registers the RPC worker plugin.\n</info added on 2025-09-20T16:24:58.456Z>",
-            "status": "done",
-            "testStrategy": ""
-          },
-          {
-            "id": 2,
-            "title": "Configure Worker for Formula Execution",
-            "description": "Set up the worker to handle formula execution tasks.",
-            "dependencies": [
-              "7.1"
-            ],
-            "details": "Modify examples/src/sheets/worker.ts to process formula execution requests using @univerjs/engine-formula.\n<info added on 2025-09-20T16:25:01.839Z>\nWorker configured for formula execution.  \n- File: `examples/src/sheets/worker.ts`  \n  - Registers core engine and remote formula plugins:  \n    - [UniverFormulaEnginePlugin]  \n    - [UniverRemoteSheetsFormulaPlugin]  \n  - Also includes [UniverSheetsPlugin, { onlyRegisterFormulaRelatedMutations: true }] and [UniverSheetsFilterPlugin]  \n- Locales and logging set; worker exposes `self.univer`.  \nConclusion: Worker is properly configured to handle formula execution via RPC.\n</info added on 2025-09-20T16:25:01.839Z>",
-            "status": "done",
-            "testStrategy": ""
-          },
-          {
-            "id": 3,
-            "title": "Implement Formula Execution Logic",
-            "description": "Implement the logic for executing formulas within the worker.",
-            "dependencies": [
-              "7.2"
-            ],
-            "details": "Develop the logic in the worker to execute formulas and return results using the configured RPC setup.\n<info added on 2025-09-20T16:25:05.162Z>\nFormula execution wiring confirmed. Main file `examples/src/sheets/main.ts` uses `[UniverFormulaEnginePlugin, { notExecuteFormula: true }]` and `[UniverSheetsFormulaPlugin, { notExecuteFormula: true }]`, delegating execution to remote. Worker file `examples/src/sheets/worker.ts` includes `[UniverFormulaEnginePlugin]` and `[UniverRemoteSheetsFormulaPlugin]`, routing formula execution to the worker. Conclusion: No additional execution code needed; remote execution flow is complete.\n</info added on 2025-09-20T16:25:05.162Z>",
-            "status": "done",
-            "testStrategy": ""
-          },
-          {
-            "id": 4,
-            "title": "Test Worker-Based Formula Execution",
-            "description": "Test the functionality of formula execution via the worker.",
-            "dependencies": [
-              "7.3"
-            ],
-            "details": "Conduct tests to ensure formulas are executed correctly and efficiently in the Sheets UI, verifying the integration of RPC and worker setup.",
-            "status": "done",
-            "testStrategy": ""
-          }
-        ]
-      },
-      {
-        "id": 8,
-        "title": "Enable CSV/XLSX Import/Export",
-        "description": "Add optional support for CSV/XLSX import and export functionality.",
-        "details": "Integrate xlsx and papaparse libraries to handle CSV/XLSX import/export in the Sheets UI.",
-        "testStrategy": "Test importing and exporting CSV/XLSX files to ensure data integrity and correct functionality.",
-        "priority": "medium",
-        "dependencies": [
-          3
-        ],
-        "status": "done",
-        "subtasks": []
-      },
-      {
-        "id": 9,
-        "title": "Verify and Document Changes",
-        "description": "Document all changes made during the implementation process.",
-        "details": "Create documentation outlining the changes made to achieve a Sheets-only build, including removed features and plugins.",
-        "testStrategy": "Review documentation for completeness and accuracy. Ensure it reflects the current state of the project.",
-        "priority": "low",
-        "dependencies": [
-          6,
-          8
-        ],
-        "status": "done",
-        "subtasks": []
-      },
-      {
-        "id": 10,
-        "title": "Set Up Continuous Integration",
-        "description": "Implement CI to ensure only the /sheets build is maintained.",
-        "details": "Configure a CI pipeline to automatically build and test the /sheets project, ensuring no other demos are included.",
-        "testStrategy": "Verify that the CI pipeline triggers on code changes and successfully builds and tests the /sheets project.",
-        "priority": "medium",
-        "dependencies": [
-          9
-        ],
-        "status": "done",
-        "subtasks": []
-      }
-    ],
-    "metadata": {
-      "created": "2025-09-20T16:09:56.244Z",
-      "updated": "2025-09-20T17:02:17.696Z",
-      "description": "Tasks for master context"
+        "metadata": {
+            "created": "2025-09-20T17:55:57.201Z",
+            "updated": "2025-09-20T19:08:48.670Z",
+            "description": "Tasks for master context"
+        }
     }
-  }
 }

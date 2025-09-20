@@ -16,11 +16,13 @@
         "typecheck": "tsc --noEmit"
     },
     "dependencies": {
-        "@univerjs/docs": "workspace:*",
-        "@univerjs/docs-ui": "workspace:*",
         "@univerjs/action-recorder": "workspace:*",
         "@univerjs/core": "workspace:*",
         "@univerjs/data-validation": "workspace:*",
+        "@univerjs/docs": "workspace:*",
+        "@univerjs/docs-drawing": "workspace:*",
+        "@univerjs/docs-ui": "workspace:*",
+        "@univerjs/drawing": "workspace:*",
         "@univerjs/engine-formula": "workspace:*",
         "@univerjs/engine-render": "workspace:*",
         "@univerjs/icons": "0.4.6",
@@ -60,10 +62,10 @@
         "@univerjs/uniscript": "workspace:*",
         "@univerjs/watermark": "workspace:*",
         "monaco-editor": "0.52.2",
+        "papaparse": "^5.4.1",
         "react": "19.1.1",
         "react-dom": "19.1.1",
-        "xlsx": "^0.18.5",
-        "papaparse": "^5.4.1"
+        "xlsx": "^0.18.5"
     },
     "devDependencies": {
         "@types/fs-extra": "^11.0.4",

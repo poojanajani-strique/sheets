@@ -2,7 +2,7 @@
 
 <picture>
     <source media="(prefers-color-scheme: dark)" srcset="./docs/img/banner-light.png">
-    <img src="./docs/img/banner-dark.png" alt="Univer" width="400" />
+    <img src="./docs/img/banner-dark.png" alt="Strique" width="400" />
 </picture>
 
 An Isomorphic Full-Stack Framework for Creating and Editing Spreadsheets, Docs, and Slides Across Web and Server.<br />
@@ -25,7 +25,7 @@ An Isomorphic Full-Stack Framework for Creating and Editing Spreadsheets, Docs, 
 
 </div>
 
-## Use [Univer MCP](https://github.com/dream-num/univer-mcp) to drive Univer Spreadsheets with natural language and build AI-native spreadsheets.
+## Use [Strique MCP](https://github.com/dream-num/univer-mcp) to drive Strique Spreadsheets with natural language and build AI-native spreadsheets.
 
 https://github.com/user-attachments/assets/7429bd5f-d769-4057-9e67-353337531024
 
@@ -36,9 +36,9 @@ https://github.com/user-attachments/assets/7429bd5f-d769-4057-9e67-353337531024
 
 - [🌈 Highlights](#-highlights)
 - [✨ Features](#-features)
-    - [📊 Univer Sheet](#-univer-sheet)
-    - [📝 Univer Doc](#-univer-doc-under-development)
-    - [📽️ Univer Slide](#%EF%B8%8F-univer-slide-under-development)
+    - [📊 Strique Sheet](#-strique-sheet)
+    - [📝 Strique Doc](#-strique-doc-under-development)
+    - [📽️ Strique Slide](#%EF%B8%8F-strique-slide-under-development)
 - [🌐 Internationalization](#-internationalization)
 - [👾 Showcase](#-showcase)<!-- - [📦 Ecosystem](#-ecosystem) -->
 - [💬 Community](#-community)
@@ -50,25 +50,25 @@ https://github.com/user-attachments/assets/7429bd5f-d769-4057-9e67-353337531024
 
 ## 🌈 Highlights
 
-- 📈 Univer is designed to support **spreadsheets**, **documents** and **presentation**.
-- 🧙‍♀️ Univer is **isomorphic**. It can run both on browsers and Node.js (in the future, mobile devices as well), with the same API.
-- ⚙️ Univer is easily **embeddable**, allowing seamless integration into your applications.
-- 🎇 Univer is **powerful**, offering a wide range of features including **formulas**, **conditional formatting**, **data validation**, **filtering**, **collaborative editing**, **printing**, **import & export** and more features on the horizon.
-- 🔌 Univer is **highly extensible**, thanks to its *plug-in architecture* that makes it a delight for developers to implement their unique requirements on the top of Univer.
-- 💄 Univer is **highly customizable**, allowing you to personalize its appearance using *themes*. It also provides support for internationalization (i18n).
-- 🥤 Univer is **easy to work with**. The *Presets* & *Facade API* make it easy to hands on.
-- ⚡ Univer in **performant**.
-  - ✏️ Univer boasts an efficient *rendering engine* based on canvas, capable of rendering various document types flawlessly. The rendering engines supports advanced typesetting features such as *punctuation squeezing*, *text and image layout* and *scroll buffering*.
-  - 🧮 Univer incorporates a lightning-fast *formula engine* that can operate in Web Workers or even on the server side.
-- 🌌 Univer is a **highly integrated** system. Documents, spreadsheets and slides can interoperate with each others and even rendered on the same canvas, allowing information and data flow within Univer.
+- 📈 Strique is designed to support **spreadsheets**, **documents** and **presentation**.
+- 🧙‍♀️ Strique is **isomorphic**. It can run both on browsers and Node.js (in the future, mobile devices as well), with the same API.
+- ⚙️ Strique is easily **embeddable**, allowing seamless integration into your applications.
+- 🎇 Strique is **powerful**, offering a wide range of features including **formulas**, **conditional formatting**, **data validation**, **filtering**, **collaborative editing**, **printing**, **import & export** and more features on the horizon.
+- 🔌 Strique is **highly extensible**, thanks to its *plug-in architecture* that makes it a delight for developers to implement their unique requirements on the top of Strique.
+- 💄 Strique is **highly customizable**, allowing you to personalize its appearance using *themes*. It also provides support for internationalization (i18n).
+- 🥤 Strique is **easy to work with**. The *Presets* & *Facade API* make it easy to hands on.
+- ⚡ Strique in **performant**.
+  - ✏️ Strique boasts an efficient *rendering engine* based on canvas, capable of rendering various document types flawlessly. The rendering engines supports advanced typesetting features such as *punctuation squeezing*, *text and image layout* and *scroll buffering*.
+  - 🧮 Strique incorporates a lightning-fast *formula engine* that can operate in Web Workers or even on the server side.
+- 🌌 Strique is a **highly integrated** system. Documents, spreadsheets and slides can interoperate with each others and even rendered on the same canvas, allowing information and data flow within Strique.
 
 ## ✨ Features
 
-Univer provides a wide range of features for spreadsheets, documents and presentations. Here are some of the key features:
+Strique provides a wide range of features for spreadsheets, documents and presentations. Here are some of the key features:
 
-### 📊 Univer Sheets
+### 📊 Strique Sheets
 
-- **Core Features**: Univer supports core spreadsheet functionality, including cells, rows, columns, worksheets, and workbooks.
+- **Core Features**: Strique supports core spreadsheet functionality, including cells, rows, columns, worksheets, and workbooks.
 - **Formulas**: Extensive support for various formulas, including mathematical, statistical, logical, text, date and time, lookup and reference, engineering, financial, and information formulas.
 - **Permissions**: Allows restricting access to specific elements.
 - **Number Formatting**: Supports formatting numbers based on specific criteria.
@@ -90,9 +90,9 @@ Univer provides a wide range of features for spreadsheets, documents and present
 - **Collaborative Editing**[^1]: Supports multiple users editing a spreadsheet simultaneously. File history and recovering are also provided.
 - **Editing History**[^1]: Allows users to view and restore previous versions of a spreadsheet.
 
-### 📝 Univer Docs (rc)
+### 📝 Strique Docs (rc)
 
-- **Core Features**: Univer supports core document features, including paragraphs, headings, lists, superscript, subscript, and more.
+- **Core Features**: Strique supports core document features, including paragraphs, headings, lists, superscript, subscript, and more.
 - **Lists**: Supports ordered lists, unordered lists, and task lists.
 - **Hyperlinks**: Supports inserting links to external websites, email addresses, and other locations within a document.
 - **Floating Images**: Allows inserting images into a document and supporting text and image layout.
@@ -102,13 +102,13 @@ Univer provides a wide range of features for spreadsheets, documents and present
 - **Import & Export**[^1]: Supports importing and exporting data in DOCX format.
 - **Collaborative Editing**[^1]: Supports multiple users editing a document simultaneously.
 
-### 📽️ Univer Slides (Under Development)
+### 📽️ Strique Slides (Under Development)
 
-- **Core Features**: Univer will support core presentation features, including slides, shapes, text, images, and more.
+- **Core Features**: Strique will support core presentation features, including slides, shapes, text, images, and more.
 
 ## 🌐 Internationalization
 
-Univer supports multiple languages, including:
+Strique supports multiple languages, including:
 
 - `zh-CN`
 - `zh-TW`
@@ -126,11 +126,11 @@ You can add the language you want by [Using Custom Locales](https://docs.univer.
 
 ## 👾 Showcase
 
-Embed Univer in AI products as a data presentation tool.
+Embed Strique in AI products as a data presentation tool.
 
 [![][examples-preview-capalyze]][examples-link-capalyze]
 
-You can find all the examples in the [Univer Examples](https://docs.univer.ai/showcase).
+You can find all the examples in the [Strique Examples](https://docs.univer.ai/showcase).
 
 | **📊 Spreadsheets** | **📊 Multi-instance** | **📊 Uniscript** |
 | :---: | :---: | :---: |
@@ -143,12 +143,12 @@ You can find all the examples in the [Univer Examples](https://docs.univer.ai/sh
 | [![][examples-preview-9]][examples-link-9] | [![][examples-preview-10]][examples-link-10] | [![][examples-preview-11]][examples-link-11] |
 | **📝 Collaboration** | **📝 Collaboration Playground** | **📽️ Presentations** |
 | [![][examples-preview-12]][examples-link-12] | [![][examples-preview-13]][examples-link-13] | [![][examples-preview-14]][examples-link-14] |
-| **📊 Zen Editor** | **Univer Workspace (SaaS version)** | &nbsp; |
+| **📊 Zen Editor** | **Strique Workspace (SaaS version)** | &nbsp; |
 | [![][examples-preview-15]][examples-link-15] | [![][examples-preview-16]][examples-link-16] | &nbsp; |
 
 <!-- ## 📦 Ecosystem
 
-Univer has a rich ecosystem that includes a wide range of tools and resources to help you get started with Univer: -->
+Strique has a rich ecosystem that includes a wide range of tools and resources to help you get started with Strique: -->
 
 ## 🔗 Links
 
@@ -158,21 +158,21 @@ Univer has a rich ecosystem that includes a wide range of tools and resources to
 
 ## 🔒 Security
 
-Univer is committed to maintaining a secure codebase. We follow best practices for security and regularly update our dependencies. For more information, please refer to our [Security Policy](./SECURITY.md).
+Strique is committed to maintaining a secure codebase. We follow best practices for security and regularly update our dependencies. For more information, please refer to our [Security Policy](./SECURITY.md).
 
 ## 💬 Community
 
 [![][github-community-badge]][github-community-link] [![][discord-community-badge]][discord-community-link] [![][stackoverflow-community-badge]][stackoverflow-community-link]
 
-Univer is an inclusive and welcoming project. Please read our [Code of Conduct](./CODE_OF_CONDUCT.md) before participating in the community.
+Strique is an inclusive and welcoming project. Please read our [Code of Conduct](./CODE_OF_CONDUCT.md) before participating in the community.
 
-Join the Univer community:
+Join the Strique community:
 
 - Chat with us and other developers on [Discord][discord-community-link].
 - Start a discussion on [GitHub Discussions][github-community-link].
 - Open a topic on [Stack Overflow][stackoverflow-community-link] and tag it with `univer`.
 
-You can also find Univer on:
+You can also find Strique on:
 
 [Twitter][twitter-community-link] | [YouTube][youtube-community-link]
 
@@ -180,11 +180,11 @@ You can also find Univer on:
 
 We appreciate any kinds of contributing. You can submit [issues or feature requests](https://github.com/dream-num/univer/issues) to us. Please read our [contributing guide](./CONTRIBUTING.md) first.
 
-If you would like to contribute code to Univer, please refer to the contributing guide as well. It would guide you through the process of setting up the development environment and submitting a pull request.
+If you would like to contribute code to Strique, please refer to the contributing guide as well. It would guide you through the process of setting up the development environment and submitting a pull request.
 
 ## ❤️ Sponsors
 
-The growth and development of the Univer project rely on the support of its backers and sponsors. If you are interested in supporting our project, we kindly invite you to consider becoming a sponsor. You can sponsor us through [Open Collective](https://opencollective.com/univer).
+The growth and development of the Strique project rely on the support of its backers and sponsors. If you are interested in supporting our project, we kindly invite you to consider becoming a sponsor. You can sponsor us through [Open Collective](https://opencollective.com/univer).
 
 Thanks to our sponsors, just part of them are listed here because of the space limit, ranking is no particular order:
 
@@ -211,7 +211,7 @@ Copyright © 2021-2025 DreamNum Co,Ltd. All Rights Reserved.
 Licensed under the [Apache-2.0](https://www.apache.org/licenses/LICENSE-2.0) license.
 
 <!-- Footnotes -->
-[^1]: These features are provided by the non-OSS version of Univer, which is free for commercial use and also includes paid upgrade plans.
+[^1]: These features are provided by the non-OSS version of Strique, which is free for commercial use and also includes paid upgrade plans.
 
 <!-- Links -->
 [github-license-shield]: https://img.shields.io/github/license/dream-num/univer?style=flat-square
@@ -303,7 +303,7 @@ Licensed under the [Apache-2.0](https://www.apache.org/licenses/LICENSE-2.0) lic
 [examples-preview-13]: ./docs/img/pro-examples-docs-collaboration-playground.gif
 [examples-preview-14]: ./docs/img/examples-slides.gif
 [examples-preview-15]: ./docs/img/zen-mode.gif
-[examples-preview-16]: ./docs/img/univer-workspace-drag-chart.gif
+[examples-preview-16]: ./docs/img/strique-workspace-drag-chart.gif
 [examples-link-capalyze]: https://capalyze.ai/
 [examples-link-0]: https://docs.univer.ai/showcase
 [examples-link-1]: https://docs.univer.ai/showcase

@@ -283,9 +283,15 @@ importers:
       '@univerjs/docs':
         specifier: workspace:*
         version: link:../packages/docs
+      '@univerjs/docs-drawing':
+        specifier: workspace:*
+        version: link:../packages/docs-drawing
       '@univerjs/docs-ui':
         specifier: workspace:*
         version: link:../packages/docs-ui
+      '@univerjs/drawing':
+        specifier: workspace:*
+        version: link:../packages/drawing
       '@univerjs/engine-formula':
         specifier: workspace:*
         version: link:../packages/engine-formula

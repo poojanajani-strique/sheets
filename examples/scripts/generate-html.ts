@@ -38,7 +38,7 @@ const indexTemplate = `<!doctype html>
     <head>
         <meta charset="utf-8" />
         <meta content="width=device-width, initial-scale=1" name="viewport" />
-        <title>Univer</title>
+        <title>Strique</title>
 
         <link rel="icon" type="image/x-icon" href="../favicon.svg" />
         <link rel="stylesheet" href="./main.css" />

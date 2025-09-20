@@ -1,6 +1,6 @@
-# Building Isomorphic Univer
+# Building Isomorphic Strique
 
-Univer is an isomorphic (full-stack) framework for building productivity tools, which means **support of Node.js is
+Strique is an isomorphic (full-stack) framework for building productivity tools, which means **support of Node.js is
 at the same priority as browsers**.
 
 To make your code aligned with the isomorphic architecture, please pay

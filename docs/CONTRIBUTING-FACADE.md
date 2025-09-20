@@ -1,8 +1,8 @@
 # How to Contribute to Facade API
 
-Facade API is an API layer of all other packages of Univer and it helps users to use Univer easily. For a detailed introduction of Facade API, please visit [Facade API](https://docs.univer.ai/en-US/guides/sheets/getting-started/facade).
+Facade API is an API layer of all other packages of Strique and it helps users to use Strique easily. For a detailed introduction of Facade API, please visit [Facade API](https://docs.univer.ai/en-US/guides/sheets/getting-started/facade).
 
-Facade API is consists of multi classes such as `FUniver`, `FWorkbook` and `FRange` etc. You can refer to Google's [AppScripts](https://developers.google.com/apps-script/reference/spreadsheet) to design Facade API.
+Facade API is consists of multi classes such as `FStrique`, `FWorkbook` and `FRange` etc. You can refer to Google's [AppScripts](https://developers.google.com/apps-script/reference/spreadsheet) to design Facade API.
 
 Please use JSDoc to document your code. For example:
 

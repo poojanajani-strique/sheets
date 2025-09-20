@@ -1,4 +1,4 @@
-# Univer Naming Convention
+# Strique Naming Convention
 
 To ensure code quality and consistency, please adhere to the following guidelines.
 
@@ -96,11 +96,11 @@ export const SHEET_CONDITIONAL_FORMATTING_PLUGIN = 'sheet-conditional-formatting
 
 ### Plugins' classes
 
-Plugin classes should be named in PascalCase and prefixed by `Univer`. For example:
+Plugin classes should be named in PascalCase and prefixed by `Strique`. For example:
 
 ```typescript
 // ✅
-export class UniverFilterPlugin extends Plugin {}
+export class StriqueFilterPlugin extends Plugin {}
 
 // 🚫
 export class FilterPlugin extends Plugin {}

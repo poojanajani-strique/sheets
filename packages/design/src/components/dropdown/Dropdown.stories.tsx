@@ -38,7 +38,7 @@ export const Playground = {
                 <Dropdown
                     overlay={(
                         <div className="univer-text-primary-500">
-                            Hello Univer
+                            Hello Strique
                             <Dropdown
                                 overlay={(
                                     <div className="univer-text-cyan-700">

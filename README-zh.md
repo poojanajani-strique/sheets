@@ -2,10 +2,10 @@
 
 <picture>
     <source media="(prefers-color-scheme: dark)" srcset="./docs/img/banner-light.png">
-    <img src="./docs/img/banner-dark.png" alt="Univer" width="400" />
+    <img src="./docs/img/banner-dark.png" alt="Strique" width="400" />
 </picture>
 
-Univer 是一个开源的办公套件引擎，旨在为开发者提供一个强大、灵活且易于使用的办公套件解决方案。它支持电子表格、文档和幻灯片等多种类型的文档，并提供了丰富的功能和高度的可扩展性。<br />
+Strique 是一个开源的办公套件引擎，旨在为开发者提供一个强大、灵活且易于使用的办公套件解决方案。它支持电子表格、文档和幻灯片等多种类型的文档，并提供了丰富的功能和高度的可扩展性。<br />
 **可扩展 · 可嵌入 · 高性能**<br />
 
 [English][readme-en-link] | **简体中文** | [日本語][readme-ja-link] | [Español][readme-es-link] <br />
@@ -25,7 +25,7 @@ Univer 是一个开源的办公套件引擎，旨在为开发者提供一个强�
 
 </div>
 
-通过 [Univer MCP](https://github.com/dream-num/univer-mcp)，用自然语言驱动 Univer Sheet，构建 AI-Native Spreadsheet。
+通过 [Strique MCP](https://github.com/dream-num/univer-mcp)，用自然语言驱动 Strique Sheet，构建 AI-Native Spreadsheet。
 
 https://github.com/user-attachments/assets/7429bd5f-d769-4057-9e67-353337531024
 
@@ -36,9 +36,9 @@ https://github.com/user-attachments/assets/7429bd5f-d769-4057-9e67-353337531024
 
 - [🌈 亮点](#-亮点)
 - [✨ 特性](#-特性)
-    - [📊 Univer Sheet](#-univer-sheet)
-    - [📝 Univer Doc](#-univer-doc积极开发中)
-    - [📽️ Univer Slide](#%EF%B8%8F-univer-slide积极开发中)
+    - [📊 Strique Sheet](#-strique-sheet)
+    - [📝 Strique Doc](#-strique-doc积极开发中)
+    - [📽️ Strique Slide](#%EF%B8%8F-strique-slide积极开发中)
 - [🌐 国际化](#-国际化)
 - [👾 在线示例](#-在线示例)<!-- - [📦 生态系统](#-生态系统) -->
 - [💬 社区](#-社区)
@@ -50,25 +50,25 @@ https://github.com/user-attachments/assets/7429bd5f-d769-4057-9e67-353337531024
 
 ## 🌈 亮点
 
-- 📈 **支持多种类文档** Univer 目前支持**电子表格**和**富文本文档**，未来还会增加对**幻灯片**的支持。
+- 📈 **支持多种类文档** Strique 目前支持**电子表格**和**富文本文档**，未来还会增加对**幻灯片**的支持。
 - 🧙‍♀️ **多端同构** 可以在浏览器和 Node.js 环境中运行。
-- ⚙️ **易于集成** Univer 能够无缝集成到你的应用当中。
-- 🎇 **功能强大** Univer 支持非常多的功能，包括但不限于**公式计算**、**条件格式**、**数据验证**、**筛选**、**协同编辑**、**打印**、**导入导出**等等，更多的功能即将陆续发布。
-- 🔌 **高度可扩展** Univer 的*插件化架构*使得扩展 Univer 的功能变得轻松容易，你可以在 Univer 之上实现自己的业务需求。
-- 💄 **高度可定制** 你可以通过*主题*来自定义 Univer 的外观，另外还支持国际化。
-- 🥤 **易于使用** *Presets* 和 *Facade API* 使得 Univer 很容易上手
+- ⚙️ **易于集成** Strique 能够无缝集成到你的应用当中。
+- 🎇 **功能强大** Strique 支持非常多的功能，包括但不限于**公式计算**、**条件格式**、**数据验证**、**筛选**、**协同编辑**、**打印**、**导入导出**等等，更多的功能即将陆续发布。
+- 🔌 **高度可扩展** Strique 的*插件化架构*使得扩展 Strique 的功能变得轻松容易，你可以在 Strique 之上实现自己的业务需求。
+- 💄 **高度可定制** 你可以通过*主题*来自定义 Strique 的外观，另外还支持国际化。
+- 🥤 **易于使用** *Presets* 和 *Facade API* 使得 Strique 很容易上手
 - ⚡ **性能优越**
-  - ✏️ Univer 实现了基于 canvas 的*渲染引擎*，能够高效地渲染不同类型的文档。渲染引擎支持 *标点挤压* *盘古之白* *图文混排* *滚动贴图* 等高级特性。
+  - ✏️ Strique 实现了基于 canvas 的*渲染引擎*，能够高效地渲染不同类型的文档。渲染引擎支持 *标点挤压* *盘古之白* *图文混排* *滚动贴图* 等高级特性。
   - 🧮 自研的 *公式引擎* 拥有超快的计算速度，还能在 Web Worker 中运行，未来将会支持服务端计算。
-- 🌌 **高度集成** 文档、电子表格和幻灯片能够互操作，甚至是渲染在同一个画布上，使得信息和数据能够在 Univer 当中自由地流动。
+- 🌌 **高度集成** 文档、电子表格和幻灯片能够互操作，甚至是渲染在同一个画布上，使得信息和数据能够在 Strique 当中自由地流动。
 
 ## ✨ 特性
 
-Univer 提供了丰富的电子表格、文档和幻灯片功能。以下是一些主要功能：
+Strique 提供了丰富的电子表格、文档和幻灯片功能。以下是一些主要功能：
 
-### 📊 Univer Sheets
+### 📊 Strique Sheets
 
-- **核心功能**：Univer 支持电子表格的核心功能，包括单元格、行、列、工作表和工作簿。
+- **核心功能**：Strique 支持电子表格的核心功能，包括单元格、行、列、工作表和工作簿。
 - **公式**：支持各种公式，包括数学、统计、逻辑、文本、日期和时间、查找和引用、工程、金融和信息公式。
 - **权限**：允许限制对特定元素的访问。
 - **数字格式化**：支持根据特定条件格式化数字。
@@ -90,9 +90,9 @@ Univer 提供了丰富的电子表格、文档和幻灯片功能。以下是一�
 - **协同编辑**[^1]：支持多个用户同时编辑电子表格，同时支持历史记录与恢复。
 - **编辑历史**[^1]：允许用户查看和恢复电子表格的先前版本。
 
-### 📝 Univer Docs（rc）
+### 📝 Strique Docs（rc）
 
-- **核心功能**：Univer 支持文档的核心功能，包括段落、标题、列表、上标、下标等。
+- **核心功能**：Strique 支持文档的核心功能，包括段落、标题、列表、上标、下标等。
 - **列表**：支持有序列表、无序列表和任务列表。
 - **超链接**：支持在文档中插入外部网站、电子邮件地址的链接。
 - **浮动图片**：允许将图片插入到文档中，并支持图文混合排版。
@@ -102,13 +102,13 @@ Univer 提供了丰富的电子表格、文档和幻灯片功能。以下是一�
 - **导入和导出**[^1]：支持导入导出 DOCX 格式的数据。
 - **协同编辑**[^1]：支持多个用户同时编辑文档。
 
-### 📽️ Univer Slides（开发中）
+### 📽️ Strique Slides（开发中）
 
-- **核心功能**：Univer 将支持幻灯片的核心功能，包括幻灯片、形状、文本、图片等。
+- **核心功能**：Strique 将支持幻灯片的核心功能，包括幻灯片、形状、文本、图片等。
 
 ## 🌐 国际化
 
-Univer 内置多种语言支持，包括：
+Strique 内置多种语言支持，包括：
 
 - `zh-CN`
 - `zh-TW`
@@ -126,11 +126,11 @@ Univer 内置多种语言支持，包括：
 
 ## 👾 在线示例
 
-在 AI 产品中嵌入 Univer，作为数据展示工具。
+在 AI 产品中嵌入 Strique，作为数据展示工具。
 
 [![][examples-preview-biaoda]][examples-link-biaoda]
 
-你可以在 [Univer Examples](https://docs.univer.ai/showcase) 中找到所有的示例。
+你可以在 [Strique Examples](https://docs.univer.ai/showcase) 中找到所有的示例。
 
 | **📊 Spreadsheets** | **📊 Multi-instance** | **📊 Uniscript** |
 | :---: | :---: | :---: |
@@ -143,33 +143,33 @@ Univer 内置多种语言支持，包括：
 | [![][examples-preview-9]][examples-link-9] | [![][examples-preview-10]][examples-link-10] | [![][examples-preview-11]][examples-link-11] |
 | **📝 Collaboration** | **📝 Collaboration Playground** | **📽️ Presentations** |
 | [![][examples-preview-12]][examples-link-12] | [![][examples-preview-13]][examples-link-13] | [![][examples-preview-14]][examples-link-14] |
-| **📊 Zen Editor** | **Univer Workspace (SaaS version)** | &nbsp; |
+| **📊 Zen Editor** | **Strique Workspace (SaaS version)** | &nbsp; |
 | [![][examples-preview-15]][examples-link-15] | [![][examples-preview-16]][examples-link-16] | &nbsp; |
 
 <!-- ## 📦 生态
 
-Univer has a rich ecosystem that includes a wide range of tools and resources to help you get started with Univer: -->
+Strique has a rich ecosystem that includes a wide range of tools and resources to help you get started with Strique: -->
 
 ## 🔒 安全
 
-Univer 致力于维护一个安全的代码库。我们遵循安全最佳实践并定期更新我们的依赖项。有关更多信息，请参阅我们的[安全政策](./SECURITY.md)。
+Strique 致力于维护一个安全的代码库。我们遵循安全最佳实践并定期更新我们的依赖项。有关更多信息，请参阅我们的[安全政策](./SECURITY.md)。
 
 ## 💬 社区
 
 [![][github-community-badge]][github-community-link] [![][discord-community-badge]][discord-community-link] [![][stackoverflow-community-badge]][stackoverflow-community-link]
 
-Univer 是一个包容和友好的项目。在参与社区之前，请阅读我们的[行为准则](./CODE_OF_CONDUCT.md)。
+Strique 是一个包容和友好的项目。在参与社区之前，请阅读我们的[行为准则](./CODE_OF_CONDUCT.md)。
 
-加入 Univer 社区：
+加入 Strique 社区：
 
 - 在 [Discord][discord-community-link] 上与我们和其他开发者聊天。
 - 在 [GitHub Discussions][github-community-link] 上开始一个讨论。
 - 在 [Stack Overflow][stackoverflow-community-link] 上开一个话题，并标记为 `univer`。
-- 微信扫描下方二维码，加入 Univer 中文社群
+- 微信扫描下方二维码，加入 Strique 中文社群
 
 ![QR Code](https://github.com/user-attachments/assets/7f14b6d8-28e5-447e-a498-62c7ab7aac3c)
 
-你也可以在以下社交平台找到 Univer：
+你也可以在以下社交平台找到 Strique：
 
 [Twitter][twitter-community-link] | [YouTube][youtube-community-link] | [知乎][zhihu-community-link] | [SegmentFault][segmentfault-community-link] | [掘金][juejin-community-link]
 
@@ -181,7 +181,7 @@ Univer 是一个包容和友好的项目。在参与社区之前，请阅读我�
 
 ## ❤️ 赞助
 
-Univer 持续稳定发展离不开它的支持者和赞助者，如果你想要支持我们的项目，请考虑成为我们的赞助者。你可以通过 [Open Collective](https://opencollective.com/univer) 赞助我们。
+Strique 持续稳定发展离不开它的支持者和赞助者，如果你想要支持我们的项目，请考虑成为我们的赞助者。你可以通过 [Open Collective](https://opencollective.com/univer) 赞助我们。
 
 感谢支持我们的赞助者，受篇幅限制，仅列举部分，排名不分先后：
 
@@ -208,7 +208,7 @@ Copyright © 2021-2025 DreamNum Co,Ltd. All Rights Reserved.
 基于 [Apache-2.0](https://www.apache.org/licenses/LICENSE-2.0) 协议分发.
 
 <!-- Footnotes -->
-[^1]: 这些功能是由 Univer 的闭源部分提供的，该版本亦可用于商业用途，还包括付费升级计划。
+[^1]: 这些功能是由 Strique 的闭源部分提供的，该版本亦可用于商业用途，还包括付费升级计划。
 
 <!-- Links -->
 [github-license-shield]: https://img.shields.io/github/license/dream-num/univer?style=flat-square
@@ -300,7 +300,7 @@ Copyright © 2021-2025 DreamNum Co,Ltd. All Rights Reserved.
 [examples-preview-13]: ./docs/img/pro-examples-docs-collaboration-playground.gif
 [examples-preview-14]: ./docs/img/examples-slides.gif
 [examples-preview-15]: ./docs/img/zen-mode.gif
-[examples-preview-16]: ./docs/img/univer-workspace-drag-chart.gif
+[examples-preview-16]: ./docs/img/strique-workspace-drag-chart.gif
 [examples-link-biaoda]: https://biaoda.me/
 [examples-link-0]: https://docs.univer.ai/showcase
 [examples-link-1]: https://docs.univer.ai/showcase

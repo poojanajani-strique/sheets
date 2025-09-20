@@ -38,7 +38,7 @@ export const Playground = {
                 <HoverCard
                     overlay={(
                         <div className="univer-text-primary-500">
-                            Hello Univer
+                            Hello Strique
                             <HoverCard
                                 openDelay={0}
                                 overlay={(

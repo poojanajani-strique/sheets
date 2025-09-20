@@ -18,10 +18,10 @@ E2EControllerAPI.loadAndRelease()
 
 And you can take profiles of the application and see if `Workbook` instances are being retained.
 
-You can also see if the `Univer` instance is being retained after we dispose it by running in Console:
+You can also see if the `Strique` instance is being retained after we dispose it by running in Console:
 
 ```javascript
-E2EControllerAPI.disposeUniver()
+E2EControllerAPI.disposeStrique()
 ```
 
 ## Frequent Reasons for Memory Leak
@@ -34,7 +34,7 @@ For example: dream-num/univer@6423ff8/packages/sheets-drawing-ui/src/controllers
 
 ### Get current unit in singleton modules
 
-It is very common to cause memory leak if you get the current unit in singleton modules and subscribe to it. Singleton modules are defined as modules that are registered in the Univer root injector instead of injectors held by render units.
+It is very common to cause memory leak if you get the current unit in singleton modules and subscribe to it. Singleton modules are defined as modules that are registered in the Strique root injector instead of injectors held by render units.
 
 For example: https://github.com/dream-num/univer/blob/dev/packages/sheets-drawing-ui/src/services/canvas-float-dom-manager.service.ts#L433.
 
