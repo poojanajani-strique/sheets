@@ -30,7 +30,7 @@ const locale = {
         },
     },
     ribbon: {
-        start: 'Start',
+        start: 'Home',
         startDesc: 'Initiate the worksheet and set basic parameters.',
         insert: 'Insert',
         insertDesc: 'Insert rows, columns, charts and various other elements.',

@@ -120,3 +120,20 @@ typedoc.json
 
 # tsx
 **/tsx-0
+
+dev-debug.log
+node_modules/
+# Environment variables
+# Editor directories and files
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+# OS specific
+.DS_Store
+
+# Task files
+# tasks.json
+# tasks/ 

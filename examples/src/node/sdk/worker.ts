@@ -20,7 +20,7 @@ import { UniverRPCNodeWorkerPlugin } from '@univerjs/rpc-node';
 import { UniverSheetsPlugin } from '@univerjs/sheets';
 
 const univer = new Univer({
-    locale: LocaleType.ZH_CN,
+    locale: LocaleType.EN_US,
 });
 
 univer.registerPlugin(UniverSheetsPlugin, { onlyRegisterFormulaRelatedMutations: true });

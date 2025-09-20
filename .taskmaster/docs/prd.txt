@@ -1,0 +1,112 @@
+<context>
+# Overview
+Keep only the `sheets` example running at `http://localhost:3000/sheets` and remove other demos (homepage, docs, slides, mobile, uni, etc.) and their dependencies while preserving a stable developer experience and a minimal, focused build.
+
+# Core Features
+- Sheets-only build and dev server at `/sheets`
+- Minimal plugin set required for core Sheets functionality
+- Worker-based formula execution via RPC
+- CSV/XLSX import/export (optional keepers)
+
+# User Experience
+- Single entry: `/sheets/`
+- Familiar Sheets UI; all other demo links/routes removed
+- Key flows:
+  - Launch `/sheets` → render workbook
+  - Edit cells, formatting, sorting, filtering
+  - Import CSV/XLSX (optional), export XLSX (optional)
+</context>
+
+<PRD>
+# Technical Architecture
+- Build/Serve
+  - `examples/esbuild.config.ts` serves `./local` at port 3000 and bundles entry points
+  - Keep only `./src/sheets/main.ts` and `./src/sheets/worker.ts` as entries
+  - `examples/public/sheets/index.html` loads `./main.js` (sheets app)
+  - `examples/scripts/generate-html.ts` writes `public/<dir>/index.html` per `src/<dir>/` (post-trim, only `sheets/`)
+
+- Sheets Runtime
+  - `examples/src/sheets/main.ts`: registers plugins and UI; hosts main thread
+  - `examples/src/sheets/worker.ts`: RPC worker with sheets/formula/filter
+  - `examples/src/sheets/lazy.ts` & `very-lazy.ts`: optional UI/utility plugin loaders
+
+- Key Integrations
+  - RPC: `@univerjs/rpc` (main + worker)
+  - Formula: `@univerjs/engine-formula`, `@univerjs/sheets-formula`
+  - UI: `@univerjs/ui`, `@univerjs/sheets-ui`
+  - Optional: `xlsx`, `papaparse` for import/export; `@univerjs/network` if needed
+
+- Infrastructure
+  - pnpm workspaces; esbuild; Tailwind plugin
+  - Vue plugin not required if adapters removed
+  - Monaco workers only needed if Uniscript kept (recommended to remove)
+
+# Development Roadmap
+- Phase 1: Serve Sheets Only
+  - In `examples/esbuild.config.ts`, set `entryPoints` to:
+    - `./src/sheets/main.ts`
+    - `./src/sheets/worker.ts`
+  - Optionally redirect `examples/public/index.html` to `./sheets/`
+  - Verify: `pnpm --filter univer-examples dev:demo` → `http://localhost:3000/sheets/`
+
+- Phase 2: Remove Other Demo Sources/Public
+  - Delete `examples/src/*` except `examples/src/sheets/**` (+ any shared files it imports, e.g., `global.css`)
+  - Delete `examples/public/*` except `examples/public/sheets/**` (+ shared assets like `favicon.svg`)
+  - Keep generator or replace with static `public/sheets/index.html`
+
+- Phase 3: Trim Plugins (reduce deps)
+  - In `examples/src/sheets/main.ts`:
+    - Remove: `UniverDocsPlugin`, `UniverDocsUIPlugin`, `UniverWebComponentAdapterPlugin`, `UniverVue3AdapterPlugin`
+    - Consider removing if unneeded: `UniverNetworkPlugin`, `UniverSheetsThreadCommentPlugin`
+    - Keep minimal:
+      - Core/UI/Render: `UniverRenderEnginePlugin`, `UniverUIPlugin`
+      - Sheets: `UniverSheetsPlugin`, `UniverSheetsUIPlugin`
+      - Formula: `UniverFormulaEnginePlugin`, `UniverSheetsFormulaPlugin` (optionally `notExecuteFormula: true`)
+      - Common: `UniverSheetsNumfmtPlugin`, `UniverSheetsFilterPlugin`, `UniverSheetsSortPlugin`, `UniverSheetsHyperLinkPlugin`, `UniverSheetsTablePlugin`, `UniverSheetsNotePlugin`, `UniverSheetsConditionalFormattingPlugin`, `UniverSheetsZenEditorPlugin`
+      - RPC: `UniverRPCMainThreadPlugin` (worker URL)
+  - In `examples/src/sheets/lazy.ts`:
+    - Remove docs UI plugins
+    - Keep only sheets UI plugins actually used (numfmt/formula/data-validation/conditional-formatting/filter/table/drawing UI)
+  - In `examples/src/sheets/very-lazy.ts`:
+    - Remove `UniverUniscriptPlugin`, `UniverDebuggerPlugin`, `UniverActionRecorderPlugin` unless required
+    - Optionally keep: `sheets-hyper-link-ui`, `sheets-sort-ui`, `sheets-crosshair-highlight`, `sheets-find-replace`
+
+- Phase 4: Prune `examples/package.json` Dependencies
+  - Remove families: `@univerjs/docs*`, `@univerjs/slides*`, `@univerjs/uni-*`, `@univerjs/ui-adapter-*` (if removed), `@univerjs/thread-comment*` (if removed), `@univerjs/debugger`, `@univerjs/action-recorder`, `@univerjs/uniscript`, `monaco-editor`
+  - Keep only what's referenced by trimmed sheets files and custom CSV/XLSX plugins:
+    - Typical: `@univerjs/core`, `@univerjs/engine-render`, `@univerjs/engine-formula`, `@univerjs/rpc`, `@univerjs/sheets`, `@univerjs/sheets-ui`, `@univerjs/sheets-formula`, `@univerjs/sheets-numfmt`, `@univerjs/sheets-filter`, `@univerjs/sheets-sort`, `@univerjs/sheets-table`, `@univerjs/sheets-hyper-link`, `@univerjs/sheets-note`, `@univerjs/sheets-conditional-formatting`, `@univerjs/sheets-zen-editor`, `@univerjs/ui`, `@univerjs/mockdata`, `xlsx`, `papaparse`
+
+- Phase 5: Optionally Remove Unused Workspace Packages
+  - Iteratively delete unused `packages/**` and `packages-experimental/**` families (docs, slides, uni-*, thread-comment, docs-* UI, etc.)
+  - After each: `pnpm i`, rebuild examples, verify `/sheets`
+
+- Phase 6: Cleanup Build Extras
+  - If Uniscript removed, drop monaco worker build from `esbuild.config.ts`
+  - Remove Vue plugin if adapters removed
+  - Optionally drop `scripts/generate-html.ts` and keep static `public/sheets/index.html`
+
+# Logical Dependency Chain
+1) Phase 1 (serve sheets-only) → baseline
+2) Phase 2 (delete other demos) → after 1
+3) Phase 3 (plugin trim) → after 2
+4) Phase 4 (dep prune) → after 3
+5) Phase 5 (workspace prune) → after 4
+6) Phase 6 (build cleanup) → optional
+
+# Risks and Mitigations
+- Hidden transitive usage → Trim gradually; build and test after each change
+- Monaco/uniscript coupling → Remove Uniscript first; then drop monaco workers
+- Adapters/plugins coupling → Verify at runtime; remove only when unused
+- Upstream merges may re-add demos → Keep a dedicated branch; document changes
+- E2E-specific plugins (debugger) → Keep behind flags or remove if not used
+
+# Appendix
+- Key files: `examples/esbuild.config.ts`, `examples/public/index.html`, `examples/src/sheets/{main,worker,lazy,very-lazy}.ts`, `examples/package.json`
+- Verification:
+  - `pnpm --filter univer-examples dev:demo`
+  - Open `http://localhost:3000/sheets/`
+  - Expect: UI renders; basic edits/formatting; optional CSV/XLSX import/export works; no 404s for worker or main
+- Non-goals: Changing core packages beyond removal of unused; changing sheet UX
+- Future: Minimal “sheets-only” template; CI to ensure only `/sheets` built
+- Roll-back: Keep branch `examples-sheets-only` to isolate changes
+</PRD>

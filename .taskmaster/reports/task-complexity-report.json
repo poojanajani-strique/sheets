@@ -1,0 +1,93 @@
+{
+	"meta": {
+		"generatedAt": "2025-09-20T16:12:45.858Z",
+		"tasksAnalyzed": 10,
+		"totalTasks": 10,
+		"analysisCount": 10,
+		"thresholdScore": 5,
+		"projectName": "Taskmaster",
+		"usedResearch": false
+	},
+	"complexityAnalysis": [
+		{
+			"taskId": 1,
+			"taskTitle": "Configure Sheets-Only Build",
+			"complexityScore": 5,
+			"recommendedSubtasks": 3,
+			"expansionPrompt": "Break down the task into modifying entry points, setting up the server, and testing the configuration.",
+			"reasoning": "The task involves configuration changes and testing, which are moderately complex and can be divided into distinct steps."
+		},
+		{
+			"taskId": 2,
+			"taskTitle": "Remove Unnecessary Demos",
+			"complexityScore": 4,
+			"recommendedSubtasks": 2,
+			"expansionPrompt": "Divide the task into removing source files and removing public files.",
+			"reasoning": "The task is straightforward but involves careful deletion of files, which can be split into manageable parts."
+		},
+		{
+			"taskId": 3,
+			"taskTitle": "Trim Plugins for Sheets",
+			"complexityScore": 6,
+			"recommendedSubtasks": 3,
+			"expansionPrompt": "Identify necessary plugins, remove unnecessary ones, and test the functionality.",
+			"reasoning": "Requires understanding of plugin dependencies and testing, making it moderately complex."
+		},
+		{
+			"taskId": 4,
+			"taskTitle": "Prune Package Dependencies",
+			"complexityScore": 5,
+			"recommendedSubtasks": 3,
+			"expansionPrompt": "List current dependencies, identify unused ones, and test the build after removal.",
+			"reasoning": "Involves dependency analysis and testing, which can be broken down into clear steps."
+		},
+		{
+			"taskId": 5,
+			"taskTitle": "Remove Unused Workspace Packages",
+			"complexityScore": 4,
+			"recommendedSubtasks": 2,
+			"expansionPrompt": "Iterate through packages, remove unused ones, and verify functionality.",
+			"reasoning": "The task is iterative and involves testing, which can be divided into removal and verification steps."
+		},
+		{
+			"taskId": 6,
+			"taskTitle": "Clean Up Build Configuration",
+			"complexityScore": 3,
+			"recommendedSubtasks": 2,
+			"expansionPrompt": "Identify unnecessary configurations, remove them, and test the build.",
+			"reasoning": "The task is simple but requires careful removal and testing, which can be split into identification and execution."
+		},
+		{
+			"taskId": 7,
+			"taskTitle": "Implement Worker-Based Formula Execution",
+			"complexityScore": 7,
+			"recommendedSubtasks": 4,
+			"expansionPrompt": "Set up RPC, configure worker, implement formula execution, and test the functionality.",
+			"reasoning": "Involves multiple technical steps and testing, making it more complex and suitable for further breakdown."
+		},
+		{
+			"taskId": 8,
+			"taskTitle": "Enable CSV/XLSX Import/Export",
+			"complexityScore": 6,
+			"recommendedSubtasks": 3,
+			"expansionPrompt": "Integrate libraries, implement import/export functionality, and test data integrity.",
+			"reasoning": "Requires integration and testing, which can be divided into library setup, implementation, and testing."
+		},
+		{
+			"taskId": 9,
+			"taskTitle": "Verify and Document Changes",
+			"complexityScore": 4,
+			"recommendedSubtasks": 2,
+			"expansionPrompt": "Compile changes, create documentation, and review for accuracy.",
+			"reasoning": "Involves documentation and review, which can be split into compiling changes and creating documentation."
+		},
+		{
+			"taskId": 10,
+			"taskTitle": "Set Up Continuous Integration",
+			"complexityScore": 5,
+			"recommendedSubtasks": 3,
+			"expansionPrompt": "Configure CI pipeline, set up build and test scripts, and verify CI functionality.",
+			"reasoning": "Involves setting up and testing CI, which can be divided into configuration, scripting, and verification."
+		}
+	]
+}

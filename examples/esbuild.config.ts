@@ -25,7 +25,6 @@ import esbuild from 'esbuild';
 import aliasPlugin from 'esbuild-plugin-alias';
 import cleanPlugin from 'esbuild-plugin-clean';
 import copyPlugin from 'esbuild-plugin-copy';
-import vue3 from 'esbuild-plugin-vue3';
 import stylePlugin from 'esbuild-style-plugin';
 import minimist from 'minimist';
 import React from 'react';
@@ -101,44 +100,9 @@ if (!args.watch) {
 }
 
 const entryPoints = [
-    // homepage
-    './src/main.tsx',
-
-    // sheets
+    // sheets only
     './src/sheets/main.ts',
     './src/sheets/worker.ts',
-
-    './src/sheets-no-worker/main.ts',
-
-    // sheets-multi
-    './src/sheets-multi/main.tsx',
-
-    // sheets-multi-units
-    './src/sheets-multi-units/main.ts',
-
-    // sheets-uniscript
-    './src/sheets-uniscript/main.ts',
-
-    // sheets-webcomponent
-    './src/sheets-webcomponent/main.tsx',
-
-    // docs
-    './src/docs/main.ts',
-
-    // docs-uniscript
-    './src/docs-uniscript/main.ts',
-
-    // slides
-    './src/slides/main.ts',
-
-    // uni
-    './src/uni/main.ts',
-    './src/uni/worker.ts',
-    './src/uni/lazy.ts',
-
-    // mobile sheet
-    './src/mobile-s/main.ts',
-    './src/mobile-s/worker.ts',
 ];
 
 const config: SameShape<BuildOptions, BuildOptions> = {
@@ -150,6 +114,7 @@ const config: SameShape<BuildOptions, BuildOptions> = {
     sourcemap: args.watch,
     minify: false,
     target: 'chrome70',
+    outbase: './src',
     plugins: [
         ignoreGlobalCssPlugin(),
         removeClassnameNewlinesPlugin(),
@@ -169,7 +134,6 @@ const config: SameShape<BuildOptions, BuildOptions> = {
                 },
             },
         }),
-        vue3() as unknown as Plugin,
     ],
     entryPoints,
     outdir: './local',
@@ -192,10 +156,9 @@ async function main() {
 
     if (args.watch) {
         const ctx = await esbuild.context(config);
-        await nodeBuildTask();
         await ctx.watch();
 
-        const port = isE2E ? 3000 : await detect(3002);
+        const port = 3000;
         await ctx.serve({
             servedir: './local',
             port,

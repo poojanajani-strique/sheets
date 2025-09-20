@@ -3,9 +3,9 @@
     <head>
         <meta charset="utf-8" />
         <meta content="width=device-width, initial-scale=1" name="viewport" />
-        <title>Univer</title>
+        <title>Local Sheets</title>
 
-        <link rel="icon" type="image/x-icon" href="../favicon.svg" />
+
         <link rel="stylesheet" href="./main.css" />
         <style>
             html,
@@ -14,6 +14,7 @@
                 margin: 0;
             }
         </style>
+        <meta http-equiv="refresh" content="0; url=./sheets/" />
 
         <script>
             new EventSource('/esbuild').addEventListener('change', () => {
@@ -25,6 +26,6 @@
 
     <body style="overflow: hidden">
         <div id="app" style="height: 100%"></div>
-        <script type="module" src="./main.js"></script>
+        <script>location.replace('./sheets/');</script>
     </body>
 </html>

@@ -17,6 +17,7 @@
 import { LocaleType, LogLevel, Univer } from '@univerjs/core';
 import { UniverFormulaEnginePlugin } from '@univerjs/engine-formula';
 import zhCN from '@univerjs/mockdata/locales/zh-CN';
+import enUS from '@univerjs/mockdata/locales/en-US';
 import { UniverRPCWorkerThreadPlugin } from '@univerjs/rpc';
 import { UniverSheetsPlugin } from '@univerjs/sheets';
 import { UniverSheetsFilterPlugin } from '@univerjs/sheets-filter';
@@ -24,9 +25,10 @@ import { UniverRemoteSheetsFormulaPlugin } from '@univerjs/sheets-formula';
 
 // Univer web worker is also a univer application.
 const univer = new Univer({
-    locale: LocaleType.ZH_CN,
+    locale: LocaleType.EN_US,
     logLevel: LogLevel.VERBOSE,
     locales: {
+        [LocaleType.EN_US]: enUS,
         [LocaleType.ZH_CN]: zhCN,
     },
 });

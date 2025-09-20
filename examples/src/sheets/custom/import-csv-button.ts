@@ -28,6 +28,7 @@ import {
     sequenceExecute,
     UniverInstanceType,
 } from '@univerjs/core';
+import Papa from 'papaparse';
 import { FolderIcon } from '@univerjs/icons';
 import {
     SetRangeValuesMutation,
@@ -41,7 +42,7 @@ import {
     ComponentManager,
     IMenuManagerService,
     MenuItemType,
-    RibbonOthersGroup,
+    RibbonStartGroup,
 } from '@univerjs/ui';
 
 /**
@@ -61,26 +62,18 @@ function waitUserSelectCSVFile(onSelect: (data: {
         input.onchange = () => {
             const file = input.files?.[0];
             if (!file) return;
-            const reader = new FileReader();
-            reader.onload = () => {
-                const text = reader.result;
-                if (typeof text !== 'string') return;
-
-                // tip: use npm package to parse csv
-                const rows = text.split(/\r\n|\n/);
-                const data = rows.map((line) => line.split(','));
-
-                const colsCount = data.reduce((max, row) => Math.max(max, row.length), 0);
-
-                const result = onSelect({
-                    data,
-                    colsCount,
-                    rowsCount: data.length,
-                });
-
-                resolve(result);
-            };
-            reader.readAsText(file);
+            Papa.parse<string[]>(file, {
+                worker: true,
+                skipEmptyLines: 'greedy',
+                dynamicTyping: false,
+                complete: (results) => {
+                    const rows = (results.data || []).map((r) => (Array.isArray(r) ? r.map((v) => (v == null ? '' : String(v))) : []));
+                    const colsCount = rows.reduce((max, row) => Math.max(max, row.length), 0);
+                    const ok = onSelect({ data: rows as string[][], colsCount, rowsCount: rows.length });
+                    resolve(ok);
+                },
+                error: () => resolve(false),
+            });
         };
     });
 }
@@ -213,9 +206,9 @@ class ImportCSVButtonPlugin extends Plugin {
         });
 
         this.menuManagerService.mergeMenu({
-            [RibbonOthersGroup.OTHERS]: {
+            [RibbonStartGroup.OTHERS]: {
                 [buttonId]: {
-                    order: 10,
+                    order: 49,
                     menuItemFactory,
                 },
             },

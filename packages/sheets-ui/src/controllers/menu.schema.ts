@@ -49,7 +49,7 @@ import {
     SetWorksheetRowIsAutoHeightCommand,
     ToggleGridlinesCommand,
 } from '@univerjs/sheets';
-import { ContextMenuGroup, ContextMenuPosition, RibbonPosition, RibbonStartGroup } from '@univerjs/ui';
+import { ContextMenuGroup, ContextMenuPosition, RibbonPosition, RibbonStartGroup, RibbonViewGroup } from '@univerjs/ui';
 import {
     SheetCopyCommand,
     // SheetCutCommand,
@@ -176,6 +176,32 @@ import {
 } from './menu/sheet.menu';
 
 export const menuSchema: MenuSchemaType = {
+    [RibbonPosition.VIEW]: {
+        [RibbonViewGroup.DISPLAY]: {
+            [ToggleGridlinesCommand.id]: {
+                order: 0,
+                menuItemFactory: ToggleGridlinesMenuFactory,
+            },
+        },
+        [RibbonViewGroup.OTHERS]: {
+            [SetSelectionFrozenCommand.id]: {
+                order: 0,
+                menuItemFactory: FrozenMenuItemFactory,
+            },
+            [SetRowFrozenCommand.id]: {
+                order: 1,
+                menuItemFactory: FrozenRowMenuItemFactory,
+            },
+            [SetColumnFrozenCommand.id]: {
+                order: 2,
+                menuItemFactory: FrozenColMenuItemFactory,
+            },
+            [CancelFrozenCommand.id]: {
+                order: 3,
+                menuItemFactory: CancelFrozenMenuItemFactory,
+            },
+        },
+    },
     [RibbonPosition.START]: {
         [RibbonStartGroup.HISTORY]: {
             [SetOnceFormatPainterCommand.id]: {
